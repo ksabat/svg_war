@@ -38,7 +38,8 @@ class fieldGenerator {
 	const PLANET_TYPE_GAS = 1;
 	const PLANET_TYPE_WATER = 2;
 	const PLANET_TYPE_MIXED = 3;
-	const PLANET_TYPE_HABITABLE_ROCKY = 4;
+	const
+	 PLANET_TYPE_HABITABLE_ROCKY = 4;
 	const PLANET_TYPE_HABITABLE_GAS = 5;
 	const PLANET_TYPE_HABITABLE_WATER = 6;
 	const PLANET_TYPE_HABITABLE_MIXED = 7;
@@ -60,17 +61,14 @@ class fieldGenerator {
 
 
 	static private function rollStarSystemPosition($config) {
-		$baseX = 0;
-		$baseY = 0;
-
-		var postion = {
-			x : 0,
-			y : 0
-		};
+		postion = array(
+			x => 0,
+			y => 0
+		);
 
 		switch ($config->galaxy->type) {
 			case self::GALAXY_TWO_ARM_BAR_SPIRAL: {
-					
+
 					switch(mt_rand(1, 2)) {
 						case 1: {
 							break;
@@ -269,6 +267,7 @@ class fieldGenerator {
 					};
 					case in_array($starColor, range(71, 90)) : {
 						return self::STAR_COLOR_BLUE;
+
 						break;
 					};
 					case in_array($starColor, range(91, 100)) : {
@@ -355,7 +354,7 @@ class fieldGenerator {
 			$color = array("red","yellow","white","blue")[$playField->galaxy[$counter]->star->color];
 
 			$svgBody = $svgBody . "<circle class = 'test_circle' cx = '$xPos' cy = '$yPos' r = '$radius' fill = '$color' />";
-		}
+		};
 
 		$svgWhole = "<svg xmlns = 'http://www.w3.org/2000/svg' id='playfield' stroke='black' fill='white' width='$width' height='$height'>$svgBody</svg>";
 
@@ -443,6 +442,7 @@ class fieldGenerator {
 				$habitableZoneDefinition->min = 1;
 				$habitableZoneSizeDistance->max = 18;
 				break;
+
 			};
 			case self::PLANET_SIZE_DWARF:
 			{
